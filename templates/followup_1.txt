@@ -1,0 +1,6 @@
+Hi {{ name }},
+
+Just checking in after my last email.
+
+Best,
+AutoEmailer Team

@@ -21,10 +21,7 @@ This repository contains a local Python application for automating personalized 
 * **Language**: Python 3.9+
 * **Database**: SQLite (via the built‑in `sqlite3` module)
 * **Templating**: [Jinja2](https://palletsprojects.com/p/jinja/) or Python’s `string.Template`
-* **Email transport**:
-
-  * Option A: Gmail SMTP (`smtplib` + App Password)
-  * Option B: Gmail API (`google-api-python-client` + OAuth2)
+* **Email transport**: Gmail API (`google-api-python-client` + OAuth2)
 * **CLI framework**: `argparse` (built‑in) or `click`
 * **Dependencies**: Listed in `requirements.txt`
 
@@ -41,8 +38,8 @@ email-automation/
 │   ├── followup_1.txt        # Follow‑up #1 message
 │   └── followup_2.txt        # Follow‑up #2 message
 ├── email_db.sqlite           # Local SQLite database (auto‑generated)
-├── credentials/              # OAuth2 tokens or App Password storage
-│   └── gmail_creds.json
+├── credentials/              # OAuth2 tokens
+│   └── credentials.json
 ├── requirements.txt          # Python dependencies
 └── README.md                 # This documentation
 ```
@@ -52,10 +49,7 @@ email-automation/
 ## Prerequisites
 
 1. **Python** 3.9 or higher installed
-2. **Gmail account** with one of the following:
-
-   * App Password (recommended for simplicity)
-   * OAuth2 credentials (requires Google Cloud Project setup)
+2. **Gmail account** with OAuth2 credentials (requires a Google Cloud Project)
 3. **Access** to a terminal/console on your local machine
 
 ---
@@ -84,26 +78,11 @@ email-automation/
 
 ## Configuration
 
-### 1. Email Credentials
+### 1. Gmail API Credentials
 
-* **SMTP + App Password**:
-
-  1. Enable 2‑Step Verification on your Google Account.
-  2. Generate an App Password for “Mail.”
-  3. Save it in `credentials/gmail_creds.json`:
-
-     ```json
-     {
-       "email": "you@gmail.com",
-       "app_password": "abcd efgh ijkl mnop"
-     }
-     ```
-
-* **Gmail API + OAuth2** (optional):
-
-  1. Create a Google Cloud Project with Gmail API enabled.
-  2. Download `credentials.json` from OAuth2 consent setup.
-  3. Place it in `credentials/` and follow the first‑run instructions in `send.py` to generate tokens.
+1. Create a Google Cloud Project with Gmail API enabled.
+2. Download `credentials.json` from OAuth2 consent setup.
+3. Place it in `credentials/` and run the CLI once to generate `token.json`.
 
 ### 2. Contact Import
 
