@@ -1,0 +1,6 @@
+Hello {{ name }},
+
+This is our first message to you.
+
+Regards,
+AutoEmailer Team

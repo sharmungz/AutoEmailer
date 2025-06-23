@@ -1,0 +1,6 @@
+Hello {{ name }},
+
+Following up once more regarding our previous correspondence.
+
+Best regards,
+AutoEmailer Team
